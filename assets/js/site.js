@@ -176,19 +176,14 @@ const SITE = {
   });
 
   /* ---------- spoiler text (e.g. Secret Endings) ----------
-     <span class="spoiler">…</span> starts blurred. Words near the mouse
-     become clear (a soft "spotlight") and blur again as it moves away.
+     <span class="spoiler">…</span> starts blurred.
+     Mouse: the whole text fades clear while the cursor is over it (CSS :hover).
      Touch screens: tap to reveal / tap again to hide.
      Keyboard: focusing the text reveals it. */
-  const SPOILER_BLUR = 6;    // px of blur when hidden
-  const SPOILER_CLEAR = 22;  // px around the cursor that is fully clear
-  const SPOILER_FADE = 70;   // px over which the blur fades back in
-
   document.querySelectorAll('.spoiler').forEach((el) => {
-    // wrap each word in its own span, keeping the spaces between them
+    // wrap each word in its own span so the blur works across line breaks
     const text = el.textContent;
     el.textContent = '';
-    const words = [];
     text.split(/(\s+)/).forEach((part) => {
       if (!part) return;
       if (/^\s+$/.test(part)) { el.append(part); return; }
@@ -196,30 +191,10 @@ const SITE = {
       w.className = 'spoiler__w';
       w.textContent = part;
       el.append(w);
-      words.push(w);
     });
 
-    let frame = 0, x = 0, y = 0, lastPointer = 'mouse';
-    const spotlight = () => {
-      frame = 0;
-      words.forEach((w) => {
-        const r = w.getBoundingClientRect();
-        const dx = Math.max(r.left - x, 0, x - r.right);
-        const dy = Math.max(r.top - y, 0, y - r.bottom);
-        const d = Math.hypot(dx, dy);
-        const t = Math.min(Math.max((d - SPOILER_CLEAR) / SPOILER_FADE, 0), 1);
-        w.style.setProperty('--blur', `${(t * SPOILER_BLUR).toFixed(2)}px`);
-      });
-    };
-    const reset = () => words.forEach((w) => w.style.removeProperty('--blur'));
-
+    let lastPointer = 'mouse';
     el.addEventListener('pointerdown', (e) => { lastPointer = e.pointerType; });
-    el.addEventListener('pointermove', (e) => {
-      if (e.pointerType !== 'mouse') return;
-      x = e.clientX; y = e.clientY;
-      if (!frame) frame = requestAnimationFrame(spotlight);
-    });
-    el.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') reset(); });
     el.addEventListener('click', () => {
       if (lastPointer !== 'mouse') el.classList.toggle('is-revealed');   // tap to reveal / hide
     });
