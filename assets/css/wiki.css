@@ -469,6 +469,18 @@ a:hover { color: var(--c-link-hover); }
 .endings li { margin: 0 0 .7em; }
 .endings li { display: grid; grid-template-columns: 8.4em 1fr; gap: 8px; }
 .endings strong { white-space: nowrap; }
+
+/* Spoiler text — blurred until the mouse moves over it (logic in site.js).
+   Usage: <span class="spoiler" tabindex="0">secret text</span> */
+.spoiler { cursor: help; outline-offset: 4px; }
+.spoiler__w {
+  display: inline-block;
+  filter: blur(var(--blur, 6px));
+  transition: filter .55s ease-out;
+  will-change: filter;
+}
+.spoiler.is-revealed .spoiler__w { filter: blur(0); }
+@media (prefers-reduced-motion: reduce) { .spoiler__w { transition: none; } }
 @media (max-width: 640px) { .endings li { display: block; } .endings strong { margin-right: 6px; } }
 
 /* Image placeholder (until real art is added) */

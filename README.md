@@ -48,6 +48,7 @@ with your text.
 
 ## Components (see page-template.html)
 
+Spoiler text (`<span class="spoiler" tabindex="0">…</span>`, blurred until hovered/tapped) ·
 Page header + breadcrumb · section headings · cards · grid · infobox (character
 profile) · character cards · chapter list · tables · expandable / spoiler
 sections · images with captions · notes & warnings · tags · buttons · prev/next.
