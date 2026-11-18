@@ -27,10 +27,12 @@ const SITE = {
   // Characters — one line per character. This list builds the character
   // buttons on characters.html and the Characters dropdown in the top menu.
   // To add a character: copy characters/raven.html, edit it, add a line here.
-  // group: 'main' = Main Routes, 'other' = Secondary Routes.
+  // group: 'protagonist' = Main Protagonist, 'main' = Main Routes, 'other' = Secondary Routes.
   // image: leave empty ('') until there is a picture — a black frame is shown.
   // focus: 'top' keeps the top of the picture in view when it's cropped (optional).
   characters: [
+    { id: 'quinn', group: 'protagonist', name: 'Quinn', role: 'The Main Protagonist', route: 'Main Route', image: 'assets/img/quinn.jpg', focus: '25%', href: 'characters/quinn.html' },
+
     { id: 'raven', group: 'main',  name: 'Raven', role: 'The Biker Influencer',   route: 'Main Route', image: 'assets/img/biker.jpg',    href: 'characters/raven.html' },
     { id: 'titan', group: 'main',  name: 'Titan', role: 'The Gym Rat Influencer', route: 'Main Route', image: 'assets/img/gym-rat1.jpg', href: 'characters/titan.html' },
 
@@ -42,6 +44,7 @@ const SITE = {
 
   // Headings used to group the characters in the top-menu dropdown
   characterGroups: [
+    { id: 'protagonist', label: 'Main Protagonist' },
     { id: 'main',  label: 'Main Routes' },
     { id: 'other', label: 'Secondary Routes' },
   ],

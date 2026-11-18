@@ -9,7 +9,7 @@ index.html            Home
 characters.html       Characters
 story.html            Story
 chapters.html         Chapters
-characters/           One page per character (raven, titan, ghost, shade, viper, chaos)
+characters/           One page per character (quinn, raven, titan, ghost, shade, viper, chaos)
 page-template.html    Copy-from template showing every component (not linked in the menu)
 neon-rain.html        Your original animated background (untouched)
 
@@ -42,7 +42,7 @@ with your text.
    The left/right buttons appear automatically when there is more than one.
 3. Add one line to `SITE.characters` in `assets/js/site.js` — this creates the
    character's button on the Characters page and adds them to the Characters
-   dropdown in the top menu. Set `group: 'main'` (Main Routes) or `group: 'other'`
+   dropdown in the top menu. Set `group: 'protagonist'`, `group: 'main'` (Main Routes) or `group: 'other'`
    (Secondary Routes). Leave `image: ''` until there is a picture —
    a black frame is shown instead.
 
