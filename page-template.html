@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page Template — Behind the Mask Wiki</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/logo-nav.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/wiki.css">
+</head>
+<!--
+  ╔══════════════════════════════════════════════════════════════════════╗
+  ║  PAGE TEMPLATE / COMPONENT REFERENCE                                  ║
+  ║  Copy this file to start a new page, keep the blocks you need and     ║
+  ║  delete the rest. All text below is placeholder.                      ║
+  ║                                                                       ║
+  ║  1. Set <body data-page="…"> (matches an id in SITE.nav in site.js,   ║
+  ║     or any new id if the page isn't in the top menu).                 ║
+  ║  2. To add it to the top menu, add it to SITE.nav in site.js.         ║
+  ║  3. Page in a sub-folder? Add data-root="../" to <body> and prefix    ║
+  ║     the CSS/JS/image paths in this file with ../                      ║
+  ╚══════════════════════════════════════════════════════════════════════╝
+-->
+<body data-page="template">
+
+  <div class="wiki-shell">
+    <div class="wiki-panel">
+      <main class="wiki-content" id="main">
+
+        <!-- PAGE HEADER -->
+        <header class="page-head">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Wiki</a></li>
+            <li><a href="characters.html">Characters</a></li>
+            <li>Page Title</li>
+          </ol>
+          <h1>Page Title</h1>
+          <p class="page-head__subtitle">Optional subtitle.</p>
+        </header>
+
+        <!-- INFOBOX (character profile) — floats to the right of the text -->
+        <aside class="infobox">
+          <div class="infobox__title">Character Name</div>
+          <div class="infobox__image">
+            <!-- replace with: <img src="assets/img/characters/name.webp" alt="Character Name"> -->
+            <div class="img-placeholder">Portrait</div>
+          </div>
+          <div class="infobox__caption">Image caption</div>
+          <div class="infobox__section">Profile</div>
+          <table>
+            <tr><th>Field</th><td>Value</td></tr>
+            <tr><th>Field</th><td>Value</td></tr>
+            <tr><th>Field</th><td>Value</td></tr>
+          </table>
+          <div class="infobox__section">Appearances</div>
+          <table>
+            <tr><th>First</th><td><a href="chapters.html">Chapter —</a></td></tr>
+          </table>
+        </aside>
+
+        <section class="clearfix">
+          <h2>Section Heading</h2>
+          <p>Placeholder paragraph. Long-form text sits comfortably at a readable line length. <a href="#">Links look like this</a>, and <strong>bold text</strong> is brighter.</p>
+          <p>Placeholder paragraph.</p>
+          <h3>Sub-heading</h3>
+          <ul>
+            <li>List item</li>
+            <li>List item</li>
+          </ul>
+          <blockquote>Placeholder quote.</blockquote>
+        </section>
+
+        <hr>
+
+        <!-- CARDS -->
+        <section>
+          <h2>Cards</h2>
+          <div class="card">
+            <div class="card__title">Card Title</div>
+            <p>Placeholder card content.</p>
+          </div>
+          <div class="grid" style="--min: 240px">
+            <div class="card"><div class="card__title">Card</div><p>Placeholder.</p></div>
+            <div class="card"><div class="card__title">Card</div><p>Placeholder.</p></div>
+          </div>
+        </section>
+
+        <!-- CHARACTER GRID -->
+        <section>
+          <h2>Character Grid</h2>
+          <div class="grid" style="--min: 160px">
+            <a class="char-card" href="#">
+              <div class="char-card__image"><div class="img-placeholder">Image</div></div>
+              <div class="char-card__body">
+                <h3 class="char-card__name" data-no-toc>Character Name</h3>
+                <p class="char-card__meta">Short label</p>
+              </div>
+            </a>
+            <a class="char-card" href="#">
+              <div class="char-card__image"><div class="img-placeholder">Image</div></div>
+              <div class="char-card__body">
+                <h3 class="char-card__name" data-no-toc>Character Name</h3>
+                <p class="char-card__meta">Short label</p>
+              </div>
+            </a>
+            <a class="char-card" href="#">
+              <div class="char-card__image"><div class="img-placeholder">Image</div></div>
+              <div class="char-card__body">
+                <h3 class="char-card__name" data-no-toc>Character Name</h3>
+                <p class="char-card__meta">Short label</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- CHAPTER LIST -->
+        <section>
+          <h2>Chapter List</h2>
+          <ol class="chapter-list">
+            <li><a href="#">
+              <span class="chapter-list__num">I</span>
+              <span><span class="chapter-list__title">Chapter Title</span><span class="chapter-list__desc">Short description</span></span>
+              <span class="chapter-list__arrow">→</span>
+            </a></li>
+            <li><a href="#">
+              <span class="chapter-list__num">II</span>
+              <span><span class="chapter-list__title">Chapter Title</span><span class="chapter-list__desc">Short description</span></span>
+              <span class="chapter-list__arrow">→</span>
+            </a></li>
+          </ol>
+        </section>
+
+        <!-- TABLE -->
+        <section>
+          <h2>Table</h2>
+          <div class="table-wrap">
+            <table class="wiki-table">
+              <thead><tr><th>Column</th><th>Column</th><th>Column</th></tr></thead>
+              <tbody>
+                <tr><td>Cell</td><td>Cell</td><td>Cell</td></tr>
+                <tr><td>Cell</td><td>Cell</td><td>Cell</td></tr>
+                <tr><td>Cell</td><td>Cell</td><td>Cell</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- EXPANDABLE SECTIONS -->
+        <section>
+          <h2>Expandable Sections</h2>
+          <details class="collapsible">
+            <summary>Expandable section</summary>
+            <div class="collapsible__body"><p>Hidden content.</p></div>
+          </details>
+          <details class="collapsible collapsible--spoiler">
+            <summary>Spoiler section</summary>
+            <div class="collapsible__body"><p>Hidden spoiler content.</p></div>
+          </details>
+        </section>
+
+        <!-- IMAGE -->
+        <section>
+          <h2>Image</h2>
+          <figure class="figure">
+            <img src="assets/img/background.jpg" alt="Background artwork">
+            <figcaption>Image caption.</figcaption>
+          </figure>
+        </section>
+
+        <!-- CALLOUTS, TAGS, BUTTONS -->
+        <section>
+          <h2>Notes &amp; Tags</h2>
+          <div class="callout"><span class="callout__title">Note</span>Placeholder note.</div>
+          <div class="callout callout--warning"><span class="callout__title">Spoiler warning</span>Placeholder warning.</div>
+          <p>
+            <span class="tag">Tag</span>
+            <span class="tag tag--accent">Tag</span>
+            <span class="tag tag--blue">Tag</span>
+          </p>
+          <p>
+            <a class="btn" href="#">Button</a>
+            <a class="btn btn--ghost" href="#">Ghost button</a>
+          </p>
+        </section>
+
+        <!-- PREVIOUS / NEXT -->
+        <nav class="pager" aria-label="Pages">
+          <a class="btn btn--ghost" href="#">← Previous</a>
+          <a class="btn btn--ghost" href="#">Next →</a>
+        </nav>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/rain.js"></script>
+</body>
+</html>

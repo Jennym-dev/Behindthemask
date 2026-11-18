@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Characters — Behind the Mask Wiki</title>
+  <meta name="description" content="Characters of Behind the Mask.">
+  <link rel="icon" href="assets/img/logo-nav.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/wiki.css">
+</head>
+<body data-page="characters">
+
+  <!-- Background, top bar and footer are added by assets/js/site.js -->
+  <div class="wiki-shell">
+    <div class="wiki-panel">
+      <main class="wiki-content" id="main">
+        <header class="page-head">
+          <ol class="breadcrumb">
+            <li><a href="index.html">Wiki</a></li>
+            <li>Characters</li>
+          </ol>
+          <h1>Characters</h1>
+        </header>
+
+        <section>
+          <h2>Main Routes</h2>
+          <p class="section-note">Available from the beginning.</p>
+          <!-- Character buttons are built from the SITE.characters list in assets/js/site.js -->
+          <div class="grid" style="--min: 260px" data-char-grid="main"></div>
+        </section>
+
+        <section>
+          <h2>Secondary Routes</h2>
+          <p class="section-note">Unlocked after completing the main route.</p>
+          <div class="grid" style="--min: 260px" data-char-grid="other"></div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/rain.js"></script>
+</body>
+</html>
