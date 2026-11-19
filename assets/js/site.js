@@ -205,6 +205,20 @@ const SITE = {
     el.addEventListener('blur', () => el.classList.remove('is-revealed'));
   });
 
+  /* ---------- story page: highlight the chapter being read ---------- */
+  const storyNav = document.querySelector('.story-nav');
+  if (storyNav && 'IntersectionObserver' in window) {
+    const links = [...storyNav.querySelectorAll('a[href^="#"]')];
+    const sections = links.map((a) => document.querySelector(a.hash)).filter(Boolean);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.classList.toggle('is-active', a.hash === '#' + e.target.id));
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    sections.forEach((sec) => io.observe(sec));
+  }
+
   /* ---------- footer (inside the panel) ---------- */
   const panel = document.querySelector('.wiki-panel');
   if (panel) {

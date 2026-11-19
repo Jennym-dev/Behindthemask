@@ -557,7 +557,6 @@ a:hover { color: var(--c-link-hover); }
 /* Chapter overview (chapters.html) — numbered entries separated by thin lines */
 .wiki-content .chapter-index { list-style: none; margin: 0; padding: 0; max-width: none; }
 .wiki-content .chapter-index > li {
-  display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; align-items: baseline;
   margin: 0; padding: 22px 0; border-bottom: 1px solid var(--c-border);
 }
 .wiki-content .chapter-index > li:first-child { padding-top: 4px; }
@@ -566,10 +565,6 @@ a:hover { color: var(--c-link-hover); }
 .wiki-content .chapter-index__title { margin: 0 0 6px; font: 600 20px/1.3 var(--f-display); letter-spacing: .02em; }
 .chapter-index__title span { color: var(--c-muted); font-weight: 500; }
 .wiki-content .chapter-index p { margin: 0; }
-@media (max-width: 640px) {
-  .wiki-content .chapter-index > li { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; }
-  .chapter-index__num { font-size: 22px; }
-}
 
 /* Story text (story.html) */
 .story__text { max-width: 78ch; }
@@ -578,6 +573,36 @@ a:hover { color: var(--c-link-hover); }
   font: 600 19px/1.3 var(--f-display); letter-spacing: .04em; color: var(--c-text-strong);
 }
 .wiki-content .story__text h3:first-child { margin-top: 8px; padding-top: 0; border-top: 0; }
+/* Story page layout: chapters on the left, chapter navigation on the right */
+.story-layout { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 40px; align-items: start; }
+.story-layout__main { min-width: 0; }
+.story-nav {
+  position: sticky; top: calc(var(--header-h) + 24px);
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 16px; background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius);
+}
+.wiki-content .story-nav__title {
+  margin: 0 0 6px; font: 700 11px/1 var(--f-body); letter-spacing: .18em; text-transform: uppercase; color: var(--c-muted);
+}
+.story-nav a, .story-nav span {
+  display: block; padding: 8px 12px; border-radius: 2px; border: 1px solid var(--c-border-hi);
+  font: 600 12px/1.2 var(--f-body); letter-spacing: .1em; text-transform: uppercase; color: var(--c-text);
+  transition: color .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+}
+.story-nav a:hover { color: var(--c-text-strong); background: var(--c-surface-2); border-color: rgba(255,255,255,.25); }
+.story-nav a.is-active { color: #fff; background: var(--c-accent); border-color: var(--c-accent); }
+.story-nav .is-locked { color: var(--c-muted); opacity: .45; border-style: dashed; cursor: not-allowed; }
+@media (max-width: 1000px) {
+  .story-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .story-nav {
+    order: -1; top: var(--header-h); z-index: 5;
+    flex-direction: row; flex-wrap: nowrap; overflow-x: auto; gap: 6px;
+    margin: 0 0 24px; padding: 10px; background: #12141a;
+  }
+  .wiki-content .story-nav__title { display: none; }
+  .story-nav a, .story-nav span { flex: 0 0 auto; white-space: nowrap; }
+}
+
 /* phone notifications, e.g. "RAVEN is LIVE" */
 .wiki-content .story-notif {
   display: table; margin: 1.2em 0; padding: 7px 14px;

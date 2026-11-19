@@ -25,7 +25,9 @@
           <h1>Story</h1>
         </header>
 
-        <section class="story">
+        <div class="story-layout">
+          <div class="story-layout__main">
+        <section class="story" id="prologue">
           <h2>Prologue</h2>
           <p class="section-note">The Night Everything Changed</p>
 
@@ -303,7 +305,7 @@
           </div>
         </section>
 
-        <section class="story">
+        <section class="story" id="chapter-1">
           <h2>Chapter 1</h2>
           <p class="section-note">Six Strangers</p>
 
@@ -987,6 +989,21 @@
             <p class="story-cut">— END OF CHAPTER 1 —</p>
           </div>
         </section>
+          </div>
+
+          <!-- Chapter navigation (right side). When a new chapter is added,
+               give its <section> an id and turn its <span> below into an <a href="#…">. -->
+          <nav class="story-nav" aria-label="Chapters">
+            <p class="story-nav__title">Chapters</p>
+            <a href="#prologue">Prologue</a>
+            <a href="#chapter-1">Chapter 1</a>
+            <span class="is-locked" title="Coming soon">Chapter 2</span>
+            <span class="is-locked" title="Coming soon">Chapter 3</span>
+            <span class="is-locked" title="Coming soon">Chapter 4</span>
+            <span class="is-locked" title="Coming soon">Chapter 5</span>
+            <span class="is-locked" title="Coming soon">Final Chapter</span>
+          </nav>
+        </div>
 
       </main>
     </div>
