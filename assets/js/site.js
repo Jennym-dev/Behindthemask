@@ -205,6 +205,27 @@ const SITE = {
     el.addEventListener('blur', () => el.classList.remove('is-revealed'));
   });
 
+  /* ---------- story choices: buttons that reveal each path ---------- */
+  document.querySelectorAll('[data-choices]').forEach((box) => {
+    const tabs = [...box.querySelectorAll('[role="tab"]')];
+    const hint = box.querySelector('.story-choices__hint');
+    const select = (tab) => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (hint) hint.hidden = true;
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => select(t));
+      t.addEventListener('keydown', (e) => {
+        const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (step) { const n = tabs[(i + step + tabs.length) % tabs.length]; n.focus(); select(n); }
+      });
+    });
+  });
+
   /* ---------- story page: highlight the chapter being read ---------- */
   const storyNav = document.querySelector('.story-nav');
   if (storyNav && 'IntersectionObserver' in window) {
